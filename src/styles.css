@@ -57,6 +57,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .hero-copy > p { max-width: 620px; margin: 30px 0 0; color: #aeb3aa; font-size: 17px; line-height: 1.75; }
 .hero-actions, .footer-actions { display: flex; gap: 12px; margin-top: 34px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 3px; padding: 14px 18px; font-size: 13px; font-weight: 700; cursor: pointer; transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease; }
+.button:is(a) { text-decoration: none; }
 .button:hover { transform: translateY(-2px); }
 .button--primary { background: var(--acid); color: var(--black); }
 .button--primary:hover { background: #edff88; }
@@ -280,6 +281,22 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .education-note { margin: -8px 0 19px; color: rgba(8,10,9,.65); font-size: 10px; line-height: 1.6; }
 .education-card--accent .mini-tags span { color: var(--ink); border-color: rgba(8,10,9,.2); background: transparent; }
 
+.certifications-section { background: var(--paper-2); }
+.certifications-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.certification-card { display: flex; flex-direction: column; min-height: 300px; padding: 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .25s ease, transform .25s ease; }
+.certification-card:hover { background: rgba(255,255,255,.38); transform: translateY(-3px); }
+.certification-card-top { display: flex; align-items: center; justify-content: space-between; color: #777d73; }
+.certification-card-top span { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; }
+.certification-card > p { margin: 46px 0 8px; color: #666c63; font-size: 11px; font-weight: 700; }
+.certification-card h3 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -.035em; }
+.certification-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 28px; }
+.certification-card-bottom > span { color: #737970; font-family: var(--mono); font-size: 9px; }
+.certification-card-bottom a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); font-size: 10px; font-weight: 700; text-decoration: none; }
+.certification-card-bottom a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.certification-card--featured { color: var(--ink); background: var(--acid); }
+.certification-card--featured:hover { background: #e7ff70; }
+.certification-card--featured .certification-card-top, .certification-card--featured > p, .certification-card--featured .certification-card-bottom > span { color: rgba(8,10,9,.65); }
+
 .footer { position: relative; overflow: hidden; padding: 118px 0 26px; color: #f3f4ef; background: var(--black); }
 .footer::after { content: 'DATA'; position: absolute; right: -10px; bottom: -55px; color: rgba(255,255,255,.025); font-size: min(29vw, 420px); font-weight: 800; line-height: .8; letter-spacing: -.1em; pointer-events: none; }
 .footer-inner { position: relative; z-index: 1; }
@@ -287,6 +304,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
 .footer-kicker i { width: 7px; height: 7px; border-radius: 50%; background: var(--acid); }
 .footer h2 { margin: 27px 0; font-size: clamp(52px, 7.5vw, 98px); line-height: .93; letter-spacing: -.07em; }
 .footer-inner > div:first-child > p { max-width: 590px; color: #858c82; font-size: 14px; line-height: 1.75; }
+.footer-contact-links { flex-wrap: wrap; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 30px; margin-top: 110px; padding-top: 22px; border-top: 1px solid var(--dark-line); }
 .footer-bottom p { color: #656c63; font-family: var(--mono); font-size: 8px; letter-spacing: .1em; }
 .footer-bottom > button { display: flex; align-items: center; gap: 7px; border: 0; background: none; color: #8e958b; font-family: var(--mono); font-size: 8px; cursor: pointer; }
@@ -302,6 +320,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
   .skills-layout { grid-template-columns: 270px 1fr; gap: 45px; }
   .skill-orbit { width: 250px; height: 250px; }
   .about-grid { gap: 60px; }
+  .certifications-grid { grid-template-columns: repeat(2, 1fr); }
   .archive-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -348,6 +367,8 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px s
   .skills-sticky > p { margin: 0; }
   .skill-group { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
+  .certifications-grid { grid-template-columns: 1fr; }
+  .certification-card { min-height: 260px; }
   .drawer-body { grid-template-columns: 1fr; }
   .case-section:nth-child(even):not(.case-section--wide) { padding-left: 0; border-left: 0; }
   .case-section--wide { grid-column: auto; }

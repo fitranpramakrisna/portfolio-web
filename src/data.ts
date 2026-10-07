@@ -35,6 +35,51 @@ export type Project = {
   link?: { label: string; url: string }
 }
 
+export type Certification = {
+  title: string
+  issuer: string
+  issued: string
+  url?: string
+}
+
+export const certifications: Certification[] = [
+  {
+    title: 'Microsoft Certified: Azure AI Fundamentals',
+    issuer: 'Microsoft',
+    issued: 'Mar 2026',
+    url: 'https://www.credly.com/badges/03517c8a-0230-471b-9d92-7efe41408e8a/public_url',
+  },
+  {
+    title: 'Data Engineering Bootcamp',
+    issuer: 'Dibimbing',
+    issued: 'Mar 2025',
+    url: 'https://drive.google.com/file/d/1mp9NuVe7AtIUGM008rb_I_ksl75GtHF7/view',
+  },
+  {
+    title: 'Data Analysis Intensive Bootcamp',
+    issuer: 'MySkill',
+    issued: 'Oct 2024',
+    url: 'https://drive.google.com/file/d/1VKsAUwxO0i-EJWXn3ZUyaYpHMrsqoUri/view',
+  },
+  {
+    title: 'Process Data from Dirty to Clean (Google Data Analytics Professional Certificate)',
+    issuer: 'Google',
+    issued: 'Aug 2024',
+    url: 'https://drive.google.com/file/d/1tmkXzgLT1wbL4cSQ6zEhLT3rtpBZez6J/view',
+  },
+  { title: 'Data Visualization Intensive Bootcamp', issuer: 'MySkill', issued: 'Aug 2024' },
+  {
+    title: 'Intro to Data Analytics',
+    issuer: 'RevoU',
+    issued: 'Oct 2023',
+    url: 'https://drive.google.com/file/d/1TO2Jl78UY0ky5u7kmS0pO4b73UR5w7gt/view',
+  },
+  { title: 'Data Analysis in Excel', issuer: 'DataCamp', issued: 'Mar 2023' },
+  { title: 'Intermediate SQL', issuer: 'DataCamp', issued: 'May 2022' },
+  { title: 'Data Manipulation with pandas', issuer: 'DataCamp', issued: 'Apr 2022' },
+  { title: 'Intermediate Python', issuer: 'DataCamp', issued: 'Apr 2022' },
+]
+
 export const metrics = [
   { value: '18', label: 'Data marts delivered' },
   { value: '15K+', label: 'Collaboration records processed' },

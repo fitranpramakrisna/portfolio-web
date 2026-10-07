@@ -4,6 +4,7 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Award,
   Braces,
   CheckCircle2,
   ChevronRight,
@@ -11,7 +12,10 @@ import {
   Database,
   ExternalLink,
   GitBranch,
+  Github,
   Layers3,
+  Linkedin,
+  Mail,
   MapPin,
   Menu,
   Network,
@@ -24,6 +28,7 @@ import {
   additionalProjects,
   allProjects,
   careerStages,
+  certifications,
   experiences,
   featuredProjects,
   metrics,
@@ -136,7 +141,7 @@ function Navigation() {
         <span>F/</span><strong>PRAMAKRISNA</strong>
       </button>
       <nav className={`nav-links ${open ? 'nav-links--open' : ''}`} aria-label="Main navigation">
-        {['work', 'projects', 'skills', 'about'].map((item, index) => (
+        {['work', 'projects', 'skills', 'certifications', 'about'].map((item, index) => (
           <button key={item} onClick={() => navigate(item)}><span>0{index + 1}</span>{item}</button>
         ))}
         <button className="nav-cta" onClick={() => navigate('contact')}>Let’s connect <ArrowUpRight size={15} /></button>
@@ -392,7 +397,7 @@ function AboutEducation() {
     <section className="section about-section" id="about">
       <div className="container about-grid">
         <Reveal className="about-copy">
-          <div className="section-kicker"><span>04 / About</span><i /></div>
+          <div className="section-kicker"><span>05 / About</span><i /></div>
           <h2>Software foundation.<br /><em>Data engineering focus.</em></h2>
           <p>I’m a Data Engineer focused on building reliable data pipelines, analytics infrastructure, and automated data systems.</p>
           <p>My engineering background started with backend and application development. Working closely with production systems, databases, APIs, and SQL naturally led me toward Data Engineering.</p>
@@ -420,6 +425,40 @@ function AboutEducation() {
   )
 }
 
+function CertificationsSection() {
+  return (
+    <section className="section certifications-section" id="certifications">
+      <div className="container">
+        <SectionHeader
+          kicker="04 / Certifications"
+          title="Learning, validated."
+          copy="Professional certifications and focused programs across data engineering, analytics, visualization, cloud AI, SQL, and Python."
+        />
+        <div className="certifications-grid">
+          {certifications.map((certification, index) => (
+            <Reveal className={`certification-card${index === 0 ? ' certification-card--featured' : ''}`} key={`${certification.title}-${certification.issued}`} delay={(index % 3) * 0.06}>
+              <div className="certification-card-top">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <Award size={20} aria-hidden="true" />
+              </div>
+              <p>{certification.issuer}</p>
+              <h3>{certification.title}</h3>
+              <div className="certification-card-bottom">
+                <span>Issued {certification.issued}</span>
+                {certification.url && (
+                  <a href={certification.url} target="_blank" rel="noreferrer" aria-label={`View ${certification.title} credential`}>
+                    View credential <ExternalLink size={14} />
+                  </a>
+                )}
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Footer() {
   return (
     <footer className="footer" id="contact">
@@ -429,7 +468,11 @@ function Footer() {
           <span className="footer-kicker"><i /> NEXT / DATA PLATFORMS + AI</span>
           <h2>Let’s turn complex data<br />into <em>reliable systems.</em></h2>
           <p>Interested in Data Engineering, platform architecture, streaming, or grounded AI systems? This portfolio is a map of how I approach the work.</p>
-          <div className="footer-actions"><button className="button button--primary" onClick={() => scrollToId('projects')}>Review the projects <ArrowUpRight size={17} /></button><button className="button button--ghost-light" onClick={() => scrollToId('work')}>See experience <ArrowRight size={17} /></button></div>
+          <div className="footer-actions footer-contact-links">
+            <a className="button button--primary" href="mailto:fitranpramakrisna@gmail.com"><Mail size={17} /> Email me</a>
+            <a className="button button--ghost-light" href="https://www.linkedin.com/in/fitrandwipramakrisna/" target="_blank" rel="noreferrer"><Linkedin size={17} /> LinkedIn <ArrowUpRight size={15} /></a>
+            <a className="button button--ghost-light" href="https://github.com/fitranpramakrisna" target="_blank" rel="noreferrer"><Github size={17} /> GitHub <ArrowUpRight size={15} /></a>
+          </div>
         </Reveal>
         <div className="footer-bottom"><div className="brand"><span>F/</span><strong>FITRAN DWI PRAMAKRISNA</strong></div><p>DATA ENGINEER · JAKARTA, INDONESIA</p><button onClick={() => scrollToId('top')} aria-label="Back to top">TOP <ArrowUpRight size={14} /></button></div>
       </div>
@@ -454,6 +497,7 @@ export default function App() {
         <ExperienceSection />
         <ProjectsSection onSelect={openCase} onOpenArchive={() => setArchiveOpen(true)} />
         <SkillsSection />
+        <CertificationsSection />
         <AboutEducation />
       </main>
       <Footer />
